@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="prueba">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="public" xPosition="144.0" yPosition="121.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="HashSet&lt;DNI&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarPersona" returnType="void" visibility="public"/>
+        <Method name="ingresarPersona" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DNI" package="" visibility="public" xPosition="433.0" yPosition="121.0">
+      <Fields>
+        <Field name="serie" type="String" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="IngresarDNI" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Equipo" package="" visibility="public" xPosition="144.0" yPosition="398.0">
+      <Fields>
+        <Field name="jugadores" type="ArrayList&lt;Jugador&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Jugador" package="" visibility="public" xPosition="433.0" yPosition="398.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="posicion" type="int" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarJugadores" returnType="ArrayList&lt;Jugador&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Jugador&gt;" name="jugadores"/>
+        </Method>
+        <Method name="ingresarJugadores" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="TIENE" source="DNI" target="Persona" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
