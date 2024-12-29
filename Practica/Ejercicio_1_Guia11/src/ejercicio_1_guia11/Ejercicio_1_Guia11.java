@@ -20,6 +20,15 @@ public class Ejercicio_1_Guia11 {
      * Persona, la información del Perro y de la Persona.
      */
     
+//    Ejercicio Extra 1:
+//    Ahora se debe realizar unas mejoras al ejercicio de Perro y Persona. Nuestro programa va a
+//    tener que contar con muchas personas y muchos perros. El programa deberá preguntarle a
+//    cada persona, que perro según su nombre, quiere adoptar. Dos personas no pueden adoptar
+//    al mismo perro, si la persona eligió un perro que ya estaba adoptado, se le debe informar a la
+//    persona.
+//    Una vez que la Persona elige el Perro se le asigna, al final deberemos mostrar todas las
+//    personas con sus respectivos perros.
+    
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         ServicioAdopcion adopcionService = new ServicioAdopcion();
@@ -27,33 +36,40 @@ public class Ejercicio_1_Guia11 {
         List<Perro> perrosAdopcion = new ArrayList();
         //Cargar personas
         System.out.println("Cargar Personas");
-        for (int i = 0; i < 2; i++) {
-            System.out.println("Entidad.Persona " + (i + 1) + ":");
+        System.out.println("Cuantas personas quiere cargar: ");
+        int res = leer.nextInt();
+        leer.nextLine();
+        for (int i = 0; i < res; i++) {
+            System.out.println("Persona " + (i + 1) + ":");
             personas.add(adopcionService.crearPersona());
         }
         //Cargar perros
         System.out.println("Cargar Perros");
-        for (int i = 0; i < 2; i++) {
-            System.out.println("Entidad.Perro " + (i + 1) + ":");
+        System.out.println("Ingrese la cantidad de perros a cargar: ");
+        res = leer.nextInt();
+        leer.nextLine();
+        for (int i = 0; i < res; i++) {
+            System.out.println("Perro " + (i + 1) + ":");
             perrosAdopcion.add(adopcionService.crearPerro());
         }
         System.out.println("Adoptando Perros:");
         for (Persona aux : personas) {
-            System.out.println("Para la persona " + aux.getNombre() + " " + aux.getApellido() +
-                    " \nseleccione el nombre de uno de los siguientes perros en adopción: ");
+            System.out.println("Para la persona " + aux.getNombre() + " " + aux.getApellido()
+                    + " \nseleccione el nombre de uno de los siguientes perros en adopción: ");
             for (Perro aux2 : perrosAdopcion) {
                 System.out.println("Nombre: " + aux2.getNombre() + " - Raza: " + aux2.getRaza());
             }
             String adoptable = leer.next();
-            int ctrol = 0;
+            boolean adoptado = false;
             for (int i = 0; i < perrosAdopcion.size(); i++) {
                 if (adoptable.equalsIgnoreCase(perrosAdopcion.get(i).getNombre())) {
                     aux.setPerro(perrosAdopcion.get(i));
-                    ctrol++;
                     perrosAdopcion.remove(i);
+                    adoptado = true;
+                    break;
                 }
             }
-            if (ctrol == 0) {
+            if (!adoptado) {
                 System.out.println("No se ha adoptado un perro válido");
             }
         }

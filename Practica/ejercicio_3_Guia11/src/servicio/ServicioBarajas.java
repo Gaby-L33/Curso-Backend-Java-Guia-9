@@ -13,6 +13,8 @@ public class ServicioBarajas {
     ArrayList<Cartas> cartas = new ArrayList<>();
     ArrayList<Cartas> cartasDadas = new ArrayList<>();
 
+    //Se añaden los palos de las cartas
+    
     public void crearPalos() {
         palos.add(new Palos("Espadas"));
         palos.add(new Palos("Bastos"));
@@ -20,6 +22,8 @@ public class ServicioBarajas {
         palos.add(new Palos("Oros"));
     }
 
+    //Se crea la baraja con los palos y numeros, si es que no existe una anterior.
+    
     public void crearBaraja() {
         crearPalos();
         if (cartas.size() > 0) {
@@ -37,6 +41,8 @@ public class ServicioBarajas {
         }
     }
 
+//    • barajar(): cambia de posición todas las cartas aleatoriamente.
+    
     public void barajar() {
         System.out.println("Barajando...");
 //        for (int i = 0; i < cartas.size(); i++) {
@@ -49,6 +55,9 @@ public class ServicioBarajas {
         System.out.println("Se mezcló la baraja completamente!");
     }
 
+//    • siguienteCarta(): devuelve la siguiente carta que está en la baraja, cuando no haya más o
+//    se haya llegado al final, se indica al usuario que no hay más cartas.
+    
     public Cartas siguienteCarta() {
         Cartas carta = new Cartas();
         if (cartas.size() == 0) {
@@ -59,10 +68,16 @@ public class ServicioBarajas {
         return carta;
     }
 
+//    • cartasDisponibles(): indica el número de cartas que aún se puede repartir.
+    
     public void cartasDisponibles() {
-        System.out.println("Entidad.Cartas disponibles: " + cartas.size());
+        System.out.println("Cartas disponibles: " + cartas.size());
     }
 
+//    • darCartas(): dado un número de cartas que nos pidan, le devolveremos ese número de
+//    cartas. En caso de que haya menos cartas que las pedidas, no devolveremos nada, pero
+//    debemos indicárselo al usuario.
+    
     public void darCartas() {
         System.out.println("Ingrese la cantidad de cartas que desea dar:");
         int cantidad = leer.nextInt();
@@ -79,15 +94,21 @@ public class ServicioBarajas {
         }
     }
 
+//    • cartasMonton(): mostramos aquellas cartas que ya han salido, si no ha salido ninguna
+//    indicárselo al usuario
+    
     public void cartasMonton() {
-        System.out.println("Entidad.Cartas del monton: " + cartasDadas.size());
+        System.out.println("Cartas del monton: " + cartasDadas.size());
         for (Cartas carta : cartasDadas) {
             System.out.println(carta);
         }
     }
 
+//    • mostrarBaraja(): muestra todas las cartas hasta el final. Es decir, si se saca una carta y
+//    luego se llama al método, este no mostrara esa primera carta.
+    
     public void mostrarBaraja() {
-        System.out.println("Entidad.Cartas de la baraja:");
+        System.out.println("Cartas de la baraja:");
         for (Cartas carta : cartas) {
             System.out.println(carta);
         }

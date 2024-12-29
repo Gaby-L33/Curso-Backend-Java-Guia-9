@@ -1,8 +1,11 @@
 package entidad;
+//Clase Juego: esta clase posee los siguientes atributos: Jugadores (conjunto de Jugadores) y
+//Revolver
 
 import java.util.ArrayList;
 
 public class Juego {
+
     private ArrayList<Jugador> jugadoresList;
     private Revolver revolver;
 
@@ -29,11 +32,11 @@ public class Juego {
     public void setRevolver(Revolver revolver) {
         this.revolver = revolver;
     }
-    
-        @Override
+
+    @Override
     public String toString() {
-        return "Entidad.Juego{" +
-                "revolver=" + revolver +
-                '}';
+        return "Entidad.Juego{"
+                + "revolver=" + revolver
+                + '}';
     }
 }

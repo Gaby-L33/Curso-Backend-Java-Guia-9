@@ -1,5 +1,7 @@
 package entidad;
 
+import java.util.ArrayList;
+
 public class Persona {
     private String nombre;
     private String apellido;
